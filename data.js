@@ -6,7 +6,7 @@ const MOCK_LISTINGS = [
     type: "apartment",
     price: 3000,
     location: "Central (Poblacion)",
-    image: "images/apartment.jpg",
+    image: "images\apartment.jpg",
     description: "Cozy 1-bedroom apartment with balcony, near public transport and universities. Water and Wi-Fi available.",
     owner: "owner1@example.com"
   },
@@ -16,7 +16,7 @@ const MOCK_LISTINGS = [
     type: "boarding",
     price: 1500,
     location: "Dahican",
-    image: "images/boardinghouse.jpg",
+    image: "images\boardinghouse.jpg",
     description: "Safe boarding house with shared kitchen and laundry. Ideal for students.",
     owner: "owner2@example.com"
   },
@@ -26,8 +26,9 @@ const MOCK_LISTINGS = [
     type: "room",
     price: 2300,
     location: "Dawan",
-    image: "images/singleroom.jpg",
+    image: "images\singleroom.jpg",
     description: "Single room with bed and desk. Peaceful area close to work hubs.",
     owner: "owner3@example.com"
   }
 ];
+
