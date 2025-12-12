@@ -4,7 +4,41 @@
   <meta charset="utf-8"/>
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>RentEase — Home</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="Style.css" />
+  <style>
+    /* Search bar in one line */
+    .search-box {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+    }
+
+    .search-box input,
+    .search-box select {
+      padding: 12px 15px;
+      font-size: 16px;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      flex: 1; /* inputs take available space evenly */
+      min-width: 150px;
+    }
+
+    .search-box button {
+      padding: 12px 20px;
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    .search-box button:hover {
+      background: #4338ca;
+    }
+  </style>
 </head>
 <body>
   <header>
@@ -20,24 +54,65 @@
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero-inner">
-        <h1>Find your next rental — fast & reliable</h1>
-        <p>Search apartments, boarding houses, and single rooms near you.</p>
+<section class="hero">
+  <div class="hero-inner" style="
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 60px 20px;
+    gap: 15px;
+  ">
+    <h1 style="font-size: 36px; margin: 0;">Find your next rental — fast & reliable</h1>
+    <p style="font-size: 18px; margin: 0;">Search apartments, boarding houses, and single rooms near you.</p>
 
-        <form id="home-search" class="search-box" onsubmit="goSearch(event)">
-          <input id="home-location" type="search" placeholder="Enter city or barangay" aria-label="Search location"/>
-          <select id="home-type" aria-label="Property type">
-            <option value="">Any type</option>
-            <option value="apartment">Apartment</option>
-            <option value="boarding">Boarding House</option>
-            <option value="room">Single Room</option>
-          </select>
-          <button type="submit">Search</button>
-        </form>
-      </div>
-    </section>
+    <form id="home-search" class="search-box" onsubmit="goSearch(event)" style="
+      display: flex;
+      gap: 15px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 15px;
+    ">
+      <div class="location-wrapper" style="flex: 1.5; min-width: 250px;">
+  <input id="home-location" 
+         type="search" 
+         placeholder="Location (Barangay in Mati City)" 
+         autocomplete="off"
+         class="location-input">
+         
+  <div id="home-location-list" class="location-list"></div>
+</div>
+
+
+      <select id="home-type" aria-label="Property type" style="
+        padding: 14px 18px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: 1px solid #d1d5db;
+        flex: 1.5;     /* wider than before */
+        min-width: 170px;
+      ">
+        <option value="">Any type</option>
+        <option value="apartment">Apartment</option>
+        <option value="boarding">Boarding House</option>
+        <option value="room">Single Room</option>
+      </select>
+
+      <button type="submit" style="
+        padding: 14px 25px;
+        background: #4f46e5;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 16px;
+        flex: 1;       /* makes button slightly wider */
+        min-width: 120px;
+      ">Search</button>
+    </form>
+  </div>
+</section>
+
 
     <section class="featured">
       <h2>Featured Properties</h2>
@@ -51,8 +126,8 @@
 
     <section class="about">
       <div class="container">
-        <h2>About RentEase</h2>
-        <p>RentEase connects tenants and property owners in a simple, transparent platform. </p>
+        <h2><a href="about.html" style="text-decoration:none; color:inherit;">About RentEase</a></h2>
+        <p>RentEase connects tenants and property owners in a simple, transparent platform.</p>
       </div>
     </section>
   </main>
@@ -63,5 +138,62 @@
 
   <script src="data.js"></script>
   <script src="main.js"></script>
+  <script>
+const barangays = [
+  "Central",
+  "Dahican",
+  "Don Enrique Lopez",
+  "Mamali",
+  "Sainz",
+  "Matiao",
+  "Libudon",
+  "Macambol",
+  "Badas",
+  "Langka",
+  "Cabuaya",
+  "Bobon",
+  "Dawan"
+];
+
+const input = document.getElementById("home-location");
+const list = document.getElementById("home-location-list");
+
+input.addEventListener("input", () => {
+  const value = input.value.toLowerCase();
+  list.innerHTML = "";
+
+  if (!value) {
+    list.style.display = "none";
+    return;
+  }
+
+  const filtered = barangays.filter(b => b.toLowerCase().includes(value));
+
+  if (filtered.length === 0) {
+    list.style.display = "none";
+    return;
+  }
+
+  filtered.forEach(brgy => {
+    const item = document.createElement("div");
+    item.textContent = brgy;
+    item.onclick = () => {
+      input.value = brgy;
+      list.style.display = "none";
+    };
+    list.appendChild(item);
+  });
+
+  list.style.display = "block";
+});
+
+// hide dropdown when clicking outside
+document.addEventListener("click", (e) => {
+  if (!input.contains(e.target) && !list.contains(e.target)) {
+    list.style.display = "none";
+  }
+});
+</script>
+
 </body>
 </html>

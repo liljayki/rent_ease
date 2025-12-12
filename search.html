@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RentEase — Search</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">RentEase</a></div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html" class="active">Search</a></li>
+        <li><a href="owner-dashboard.html">Owner Dashboard</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="search-panel">
+      <form id="search-form" onsubmit="doSearch(event)" class="filter-row">
+        <div class="location-wrapper">
+          <input id="q-location" type="search" placeholder="Location (Barangay in Mati City)" autocomplete="off"/>
+        </div>
+
+        <select id="q-type">
+          <option value="">Any type</option>
+          <option value="apartment">Apartment</option>
+          <option value="boarding">Boarding House</option>
+          <option value="room">Single Room</option>
+        </select>
+
+        <input id="q-minprice" type="number" placeholder="Min price (₱)" min="0"/>
+        <input id="q-maxprice" type="number" placeholder="Max price (₱)" min="0"/>
+        <button type="submit">Apply</button>
+      </form>
+    </section>
+
+    <section class="results">
+      <aside class="sidebar">
+        <h3>Filters</h3>
+        <p>Use the filter row above to find listings quickly.</p>
+      </aside>
+
+      <div class="results-list">
+        <div id="results-cards" class="cards"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 RentEase</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
