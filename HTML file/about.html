@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>About RentEase</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<header>
+  <nav class="navbar">
+    <div class="logo"><a href="index.html">RentEase</a></div>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="search.html">Search</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="signup.html">Sign Up</a></li>
+    </ul>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+  </nav>
+</header>
+
+<!-- HERO SECTION -->
+<section class="about-hero">
+  <div class="hero-inner">
+    <h1>About RentEase</h1>
+    <p>Your trusted rental platform in Mati City</p>
+  </div>
+</section>
+
+<!-- MAIN CONTENT -->
+<main class="container">
+  <section class="about-section">
+    <h2>Our Goal</h2>
+    <p>
+      RentEase was created to make house-hunting easier, faster, and more transparent for people in Mati City. Our platform connects renters to trusted property owners, making the rental experience safe and convenient.
+    </p>
+
+    <h3>What We Provide</h3>
+    <ul>
+      <li>A clean, user-friendly interface</li>
+      <li>Verified listings from real property owners</li>
+      <li>Easy search tools to filter rooms, apartments, or boarding houses</li>
+      <li>Direct contact options between owners and renters</li>
+    </ul>
+
+    <h3>Why We Built This</h3>
+    <p>
+      Many students, workers, and families struggle finding a safe and suitable place to stay. RentEase solves this by offering a centralized platform made specifically for the rental landscape of Mati City.
+    </p>
+  </section>
+</main>
+
+<!-- DEVELOPERS SECTION -->
+<section class="developers">
+  <h2 class="dev-title">Meet the Developers</h2>
+  <div class="dev-grid">
+    <div class="dev-card">
+      <img src="images/erica.jpg" alt="Erica Nicole A. Canales" class="dev-img">
+      <h3>Erica Nicole A. Canales</h3>
+      <p><strong>Age:</strong> 19</p>
+      <p><strong>Email:</strong> ericanicole.canales@dorsu.edu.ph</p>
+      <p><strong>Contact:</strong> 0926-530-4741</p>
+    </div>
+
+    <div class="dev-card">
+      <img src="images/jeizel.jpg" alt="Jeizel N. Kiseo" class="dev-img">
+      <h3>Jeizel N. Kiseo</h3>
+      <p><strong>Age:</strong> 19</p>
+      <p><strong>Email:</strong> jeizel.kiseo@dorsu.edu.ph</p>
+      <p><strong>Contact:</strong> 0927-952-3816</p>
+    </div>
+
+    <div class="dev-card">
+      <img src="images/noeme.jpg" alt="Noeme B. Rin" class="dev-img">
+      <h3>Noeme B. Rin</h3>
+      <p><strong>Age:</strong> 19</p>
+      <p><strong>Email:</strong> noeme@dorsu.edu.ph</p>
+      <p><strong>Contact:</strong> 0910-997-1166</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2025 RentEase. All rights reserved.</p>
+</footer>
+
+<script>
+function toggleMenu() {
+  const nav = document.getElementById("nav-links");
+  nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RentEase — Sign Up</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: #f3f4f6;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container.auth-page {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start; /* same as login page */
+      padding: 40px 20px;
+      min-height: calc(100vh - 120px); /* header + footer */
+    }
+
+    .auth-card {
+      background: #fff;
+      padding: 40px 30px; /* same as login */
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      max-width: 400px; /* same as login */
+      display: flex;
+      flex-direction: column;
+      gap: 15px; /* same gap as login */
+      text-align: center;
+    }
+
+    .auth-card h2 {
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #111827;
+    }
+
+    .auth-card form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px; /* same spacing as login */
+    }
+
+    .auth-card input,
+    .auth-card select {
+      padding: 12px 15px; /* same as login */
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #d1d5db;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    .auth-card button {
+      padding: 14px; /* same as login */
+      background: #4f46e5;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .auth-card button:hover {
+      background: #4338ca;
+    }
+
+    #signup-msg {
+      margin-top: 12px;
+      font-size: 13px;
+      color: #ef4444;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">RentEase</a></div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Search</a></li>
+      </ul>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+  </header>
+
+  <main class="container auth-page">
+    <section class="auth-card">
+      <h2>Sign Up</h2>
+      <form id="signup-form" onsubmit="signupUser(event)">
+        <input id="su-name" placeholder="Full name" required/>
+        <input id="su-email" type="email" placeholder="Email" required/>
+        <input id="su-password" type="password" placeholder="Password" required/>
+        <select id="su-role">
+          <option value="tenant">Tenant</option>
+          <option value="owner">Property Owner</option>
+        </select>
+        <button type="submit">Create account</button>
+      </form>
+      <p id="signup-msg" class="small muted"></p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 RentEase</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

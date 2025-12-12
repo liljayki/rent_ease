@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>RentEase — Owner Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo"><a href="index.html">RentEase</a></div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="search.html">Search</a></li>
+        <li><a href="owner-dashboard.html" class="active">Owner Dashboard</a></li>
+        <li><a href="login.html">Login</a></li>
+      </ul>
+      <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section>
+      <h2>Your Listings</h2>
+      <div id="owner-listings" class="cards"></div>
+    </section>
+
+    <section class="owner-form">
+      <h3>Add / Edit Listing</h3>
+      <form id="owner-form" onsubmit="saveOwnerListing(event)">
+        <input id="o-id" type="hidden" />
+        <input id="o-title" placeholder="Title" required/>
+        <input id="o-location" placeholder="Location" required/>
+        <input id="o-price" type="number" placeholder="Price (₱)" required/>
+        <select id="o-type">
+          <option value="apartment">Apartment</option>
+          <option value="boarding">Boarding House</option>
+          <option value="room">Single Room</option>
+        </select>
+        <input id="o-image" placeholder="Image filename (images/sample1.jpg)" />
+        <textarea id="o-desc" placeholder="Description"></textarea>
+        <button type="submit">Save Listing</button>
+        <button type="button" onclick="clearOwnerForm()">Clear</button>
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 RentEase</p>
+  </footer>
+
+  <script src="data.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
